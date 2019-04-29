@@ -1,0 +1,7 @@
+CREATE DATABASE dogshelter;
+USE dogshelter;
+
+CREATE TABLE SHELTER(
+
+
+) ENGINE = INNODB;
