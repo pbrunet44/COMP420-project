@@ -3,18 +3,28 @@ use dogshelter;
 
 drop table if exists dog;
 create table dog(
-
+dog_id int(11),
+dog_name varchar(35),
+dog_age int(5),
+primary key(dog_id)
 )engine=innodb;
 
 drop table if exists breed;
 create table breed(
-
-
+breed_id int(11),
+breed_name varchar(35),
+breed_temperment varchar(35),
+breed_group varchar(35),
+primary key (breed_id)
 )engine=innodb;
 
 
 drop table if exists employees;
 create table employees(
+employee_id int(11),
+employee_code int(11),
+fname varchar(35),
+lname varchar(35),
 
 )engine=innodb;
 
