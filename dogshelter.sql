@@ -27,11 +27,47 @@ create table employee(
 em_id int(11),
 sh_id int(11),
 em_fname varchar(30),
-em_hireDate Date not null,
+em_lname varchar(30),
+em_start Date not null,
+em_end Date,     # Volenteers have a end date
 primary key (em_id, sh_id),
 foreign key (sh_id) references shelter(sh_id)
 )engine=innoDB;
 
 create table job_tile(
-job_code int(11)
+job_code int(11),
+job_descript varchar(50),
+primary key (job_descript)
 )engine=innoDB;
+
+create table breed(
+breed_id int(11),
+breed_group varchar(30),
+breed_personality varchar(30),
+primary key (breed_id)
+)engine=innoDB;
+
+create table dog(
+dog_id int(11),
+dog_name varchar(35),
+dog_age int(10),
+primary key(dog_id)
+)engine=innoDB;
+
+create table adoptee(
+ad_id int(11),
+ad_fname varchar(30),
+ad_lname varchar(30),
+ad_phone varchar(10),
+primary key (ad_id)
+)engine=innoDB;
+
+create table visit(
+v_id int(11),
+v_date Date,
+sh_id int(11),
+dog_id int(11),
+primary key(v_id)
+)engine=innoDB;
+
+
