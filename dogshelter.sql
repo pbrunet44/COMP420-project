@@ -119,16 +119,29 @@ insert into employees values(1008,13, 78, 'Patricia', 'Swarts','2009-12-13', nul
 insert into employees values(1009,13, 65, 'Christian', 'Strunk','2007-04-01',null);
 insert into employees values(1010,13, 22, 'Susan', 'Doyon','2007-04-01',null);
 
-
-
-
 create table breed(
 breed_id int(11),
+breed_name varchar(30),
 breed_group varchar(30),
-breed_traits varchar(30),
+breed_traits varchar(60),
 breed_exercise varchar(30),
 primary key (breed_id)
 )engine=innoDB;
+
+insert into breed values(1,'Pitbull Mix','Working','playful,docile,protective,fearless','Medium Energy');
+insert into breed values(2,'Anatolian Shepherd','Working','Loyal, Independent, Reserved','High Energy');
+insert into breed values(3,'Akita','Working','Courageous, Dignified, Profoundly Loyal','High Energy');
+insert into breed values(4,'Alaskan Malamute','Working Group','Affectionate, Loyal, Playful','High Energy');
+insert into breed values(5,'Black Russian Terrier','Terrier','Intelligent, Calm, Powerful','High Energy');
+insert into breed values(6,'Labrador Retriever','Sporting','easygoing, multi-talented ,friendly,','Medium Energy');
+insert into breed values(7,'German Shepherd','Herding','intelligent, capable, amazingly versatile','Medium Energy');
+insert into breed values(8,'Golden Retriever','Sporting','kind, intelligent, reliable, ','Medium Energy');
+insert into breed values(9,'French bulldog','Non-Sporting','affectionate, lively, patient, sociable, ','Low Energy');
+insert into breed values(10,'Bulldog','Non-Sporting','willful, docile, friendly, gregarious','Low Energy');
+insert into breed values(11,'Beagle','Hound','amiable, intelligent, determined, excitable','Medium Energy');
+insert into breed values(12,'Rottweiler','Working','steady, fearless, obedient, good-natured','High Energy');
+insert into breed values(13,'Yorkshire terrier','Toy','bold, independent, intelligent, confident','Low Energy');
+insert into breed values(14,'Mixed-Breed','Sporting','affectionate, independent, good-natured, intelligent','Medium Energy');
 
 create table dog(
 dog_id int(11),
