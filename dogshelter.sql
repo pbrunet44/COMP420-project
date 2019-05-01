@@ -8,7 +8,7 @@ drop table if exists shelter;   			#3
 drop table if exists dog;       			#4
 drop table if exists breed;     			#5
 drop table if exists visit;  				#6
-drop table if exists roster;    	        #7
+drop table if exists pet_list;    	        #7
 drop table if exists adoptee;   			#8
 drop table if exists foster;    			#9
 drop table if exists foster_cert;			#10
@@ -24,12 +24,26 @@ sh_phone varchar(10) unique not null,
 primary key (sh_id)
 )engine=innoDB;
 
+insert into shelter values (13, 'Richmond SPCA','64  Jadewood Farms, Madison, NJ, 07940','973-360-8241'); 
+insert into shelter values (24, 'PAWS Humane Society','100  Rogers Streett, Cincinnati, OH, 45227','513-561-2906'); 
+insert into shelter values (5, 'Canine Adoption & Rescue League','4686  Bicetown Road, Bronx, NY, 10452','929-246-0513'); 
+insert into shelter values (27, 'Fur University','524  Sand Fork Road, Sacramento, CA, 94268','574-626-3980'); 
+insert into shelter values (9, 'Second Chance Shelter','3489  Jehovah Drive, Roanoke, VA, 24011','540-526-1157'); 
+insert into shelter values (31, 'Best Friends Animal Society','2739  North Avenue, Omaha, NE, 68102','402-838-1078'); 
+
 create table job_title(
 j_id int(11),
 j_title varchar(30),
 j_descript varchar(50),
 primary key (j_id)
 )engine=innoDB;
+
+insert into job_title values(8, 'Volunteer', 'a person who freely offers to take part in an enterprise or undertake a task');
+insert into job_title values(22, 'Veterinarian', 'a person qualified to treat diseased or injured animals');
+insert into job_title values(78, 'Adoption Counselor', 'a person who observes interactions between pets and potential adopters');
+insert into job_title values(65, 'Animal Behavior Technician', 'Performs animal behavior assessments, ensuring consistency and repeatability of assessment criteria');
+insert into job_title values(43, 'Caretaker', 'provides care and basic needs to animals that are currently housed at the shelter');
+
 
 create table employee(
 em_id int(11),
@@ -129,6 +143,8 @@ primary key(fav_id, d_id),
 foreign key (d_id) references dog(d_id),
 foreign key (fav_id) references favorites_list(fav_id)
 )engine=innoDB;
+
+
 
 
 
