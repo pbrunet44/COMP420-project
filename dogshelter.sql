@@ -33,7 +33,7 @@ insert into shelter values (31, 'Best Friends Animal Society','2739  North Avenu
 
 create table job_title(
 job_id int(11),
-job_title varchar(30),
+title varchar(30),
 job_descript varchar(100),
 primary key (job_id)
 )engine=innoDB;
@@ -354,5 +354,22 @@ join breed on dog.breed_id = breed.breed_id
 order by dog.dog_age asc;
 
 # select * from all_dogs;
+#-----------------------------------------------------------------------------
+drop view if exists all_employees;
+create view all_employees as 
+select 
+concat(em_fname, "  ", em_lname) as "Name",
+shelter.sh_name as "Shelter",
+shelter.sh_phone as "Shelter Contact",
+job_title.title as "Role",
+employees.em_start as "Start Date",
+employees.em_end as "End Date"
+from shelter
+join employees on employees.sh_id = shelter.sh_id
+join job_title on employees.job_id = job_title.job_id;
+
+ # select * from all_employees;
+
+
 
 
