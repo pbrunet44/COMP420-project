@@ -197,7 +197,7 @@ create table adoptee(
 adopte_id int(11),
 adopte_fname varchar(30) not null,
 adopte_lname varchar(30) not null,
-adopte_phone varchar(10) not null,
+adopte_phone varchar(15) not null,
 primary key (adopte_id)
 )engine=innoDB;
 
@@ -232,9 +232,6 @@ insert into adoptee values(7028, 'Elizabeth', 'Solano', '917-565-2053');
 insert into adoptee values(7029, 'Kim', 'Finnegan', '251-375-2081');
 insert into adoptee values(7030, 'Rose', 'Sayers', '615-426-0698');
 
-
-
-
 create table visit(
 visit_id int(11),
 visit_date Datetime not null,
@@ -246,6 +243,7 @@ foreign key (sh_id) references shelter(sh_id),
 foreign key (dog_id) references dog(dog_id),
 foreign key (adopte_id) references adoptee(adopte_id)
 )engine=innoDB;
+
 
 create table adoption_cert(
 acert_id int(11),
@@ -295,6 +293,21 @@ foreign key (fav_id) references favorites_list(fav_id)
 )engine=innoDB;
 
 
+##################### Views & Procedures ##################### 
 
+drop view if exists all_dogs;
+create view all_dogs as 
+select 
+dog.dog_name as "Name", dog.dog_gender as "Gender", 
+dog.dog_age as "Age", dog.dog_size as  "Size", 
+breed.breed_name as "Breed",
+shelter.sh_name as "Shelter",
+shelter.sh_phone as "Contact"
+from dog 
+join shelter on dog.sh_id = shelter.sh_id
+join breed on dog.breed_id = breed.breed_id
+order by dog.dog_age asc;
+
+# select * from all_dogs;
 
 
