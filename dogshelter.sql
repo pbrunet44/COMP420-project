@@ -131,7 +131,7 @@ primary key (breed_id)
 insert into breed values(1,'Pitbull Mix','Working','playful,docile,protective,fearless','Medium Energy');
 insert into breed values(2,'Anatolian Shepherd','Working','Loyal, Independent, Reserved','High Energy');
 insert into breed values(3,'Akita','Working','Courageous, Dignified, Profoundly Loyal','High Energy');
-insert into breed values(4,'Alaskan Malamute','Working Group','Affectionate, Loyal, Playful','High Energy');
+insert into breed values(4,'Alaskan Malamute','Working','Affectionate, Loyal, Playful','High Energy');
 insert into breed values(5,'Black Russian Terrier','Terrier','Intelligent, Calm, Powerful','High Energy');
 insert into breed values(6,'Labrador Retriever','Sporting','easygoing, multi-talented ,friendly,','Medium Energy');
 insert into breed values(7,'German Shepherd','Herding','intelligent, capable, amazingly versatile','Medium Energy');
