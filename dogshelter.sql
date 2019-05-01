@@ -374,6 +374,14 @@ adopte_id int(11),
 primary key(fav_id),
 foreign key (adopte_id) references adoptee(adopte_id)
 )engine=innoDB;
+insert into favorites_list values (10001, '2018-05-30', 7008),
+(10002, '2018-06-24', 7002),
+(10003, '2018-07-30', 7005),
+(10004, '2018-07-30', 7013),
+(10005, '2018-08-30', 7015),
+(10006, '2018-09-30', 7006),
+(10007, '2018-10-30', 7012),
+(10008, '2018-11-02', 7021);
 
 create table pet_list(
 fav_id int(11),
