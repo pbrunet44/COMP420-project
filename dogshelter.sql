@@ -146,12 +146,50 @@ insert into breed values(14,'Mixed-Breed','Sporting','affectionate, independent,
 create table dog(
 dog_id int(11),
 dog_name varchar(35) not null,
+dog_gender varchar(30),
 dog_age int(10),
 dog_size varchar(30),
 breed_id int(11),
 primary key(dog_id),
 foreign key (breed_id) references breed(breed_id)
 )engine=innoDB;
+
+insert into dog values(1, 'Max', 'Male', 3, 'Small', 13);
+insert into dog values(2, 'Charlie', 'Male', 7, 'Large', 8);
+insert into dog values(3, 'Cooper', 'Male', 1, 'Medium', 1);
+insert into dog values(4, 'Buddy', 'Male', 5, 'Medium', 1);
+insert into dog values(5, 'Jack', 'Male', 7, 'Medium', 1);
+insert into dog values(6, 'Rocky', 'Male', 2, 'Medium', 1);
+insert into dog values(7, 'Oliver', 'Male', 4, 'Medium', 1);
+insert into dog values(8, 'Bear', 'Male', 9, 'Medium', 1);
+insert into dog values(9, 'Duke', 'Male', 6, 'Medium', 1);
+insert into dog values(10, 'Tucker', 'Male', 6, 'Medium', 1);
+insert into dog values(11, 'Bella', 'Female', 3, 'Medium', 1);
+insert into dog values(12, 'Lucy', 'Female', 4, 'Medium', 1);
+insert into dog values(13, 'Daisy', 'Female', 2, 'Medium', 1);
+insert into dog values(14, 'Luna', 'Female', 1, 'Medium', 1);
+insert into dog values(15, 'Lola', 'Female', 9, 'Medium', 1);
+insert into dog values(16, 'Sadie', 'Female', 6, 'Medium', 1);
+insert into dog values(17, 'Molly', 'Female', 7, 'Medium', 1);
+insert into dog values(18, 'Maggie', 'Female', 4, 'Medium', 1);
+insert into dog values(19, 'Bailey', 'Female', 9, 'Medium', 1);
+insert into dog values(20, 'Sophie', 'Female', 4, 'Medium', 1);
+insert into dog values(21, 'Elvis', 'Male', 5, 'Large', 4);
+insert into dog values(22, 'Frankie', 'Male', 10, 'Large', 5);
+insert into dog values(23, 'Rudy', 'Female', 4, 'Large', 7);
+insert into dog values(24, 'Mickey', 'Female', 8, 'Large', 2);
+insert into dog values(25, 'Coco', 'Female', 2, 'Medium', 10);
+insert into dog values(26, 'Loki', 'Female', 1, 'Small', 9);
+insert into dog values(27, 'Sammy', 'Female', 1, 'Small', 13);
+insert into dog values(28, 'Brutus', 'Male', 8, 'Large', 14);
+insert into dog values(29, 'Tank', 'Male', 3, 'Large', 5);
+insert into dog values(30, 'Ollie', 'Female', 2, 'Large', 6);
+insert into dog values(31, 'Yoda', 'Female', 8, 'Small', 11);
+insert into dog values(32, 'Tyson', 'Male', 2, 'Large', 12);
+insert into dog values(33, 'Chester', 'Male', 9, 'Large', 3);
+insert into dog values(34, 'Moose', 'Male', 3, 'Large', 4);
+insert into dog values(35, 'Chico', 'Male', 3, 'Large', 6);
+
 
 create table adoptee(
 adopte_id int(11),
