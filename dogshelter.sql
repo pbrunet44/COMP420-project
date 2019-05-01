@@ -2,18 +2,18 @@ drop database if exists dogshelters;
 create database dogshelters;
 use dogshelters;
 
-drop table if exists employee;  			#1
-drop table if exists job_tile;  			#2
-drop table if exists shelter;   			#3
-drop table if exists dog;       			#4
-drop table if exists breed;     			#5
-drop table if exists visit;  				#6
-drop table if exists pet_list;    	        #7
-drop table if exists adoptee;   			#8
-drop table if exists foster;    			#9
-drop table if exists foster_cert;			#10
-drop table if exists adoption_cert; 		#11
-drop table if exists favorites_list;		#12
+drop table if exists employee;						#1
+drop table if exists job_tile;						#2
+drop table if exists shelter;						#3
+drop table if exists dog;							#4
+drop table if exists breed;							#5
+drop table if exists visit;							#6
+drop table if exists pet_list;						#7
+drop table if exists adoptee;						#8
+drop table if exists foster;						#9
+drop table if exists foster_cert;					#10
+drop table if exists adoption_cert;					#11
+drop table if exists favorites_list;				#12
 
 
 create table shelter(
@@ -150,45 +150,47 @@ dog_gender varchar(30),
 dog_age int(10),
 dog_size varchar(30),
 breed_id int(11),
+sh_id int(11),
 primary key(dog_id),
-foreign key (breed_id) references breed(breed_id)
+foreign key (breed_id) references breed(breed_id),
+foreign key (sh_id) references shelter(sh_id)
 )engine=innoDB;
 
-insert into dog values(1, 'Max', 'Male', 3, 'Small', 13);
-insert into dog values(2, 'Charlie', 'Male', 7, 'Large', 8);
-insert into dog values(3, 'Cooper', 'Male', 1, 'Medium', 1);
-insert into dog values(4, 'Buddy', 'Male', 5, 'Medium', 1);
-insert into dog values(5, 'Jack', 'Male', 7, 'Medium', 1);
-insert into dog values(6, 'Rocky', 'Male', 2, 'Medium', 1);
-insert into dog values(7, 'Oliver', 'Male', 4, 'Medium', 1);
-insert into dog values(8, 'Bear', 'Male', 9, 'Medium', 1);
-insert into dog values(9, 'Duke', 'Male', 6, 'Medium', 1);
-insert into dog values(10, 'Tucker', 'Male', 6, 'Medium', 1);
-insert into dog values(11, 'Bella', 'Female', 3, 'Medium', 1);
-insert into dog values(12, 'Lucy', 'Female', 4, 'Medium', 1);
-insert into dog values(13, 'Daisy', 'Female', 2, 'Medium', 1);
-insert into dog values(14, 'Luna', 'Female', 1, 'Medium', 1);
-insert into dog values(15, 'Lola', 'Female', 9, 'Medium', 1);
-insert into dog values(16, 'Sadie', 'Female', 6, 'Medium', 1);
-insert into dog values(17, 'Molly', 'Female', 7, 'Medium', 1);
-insert into dog values(18, 'Maggie', 'Female', 4, 'Medium', 1);
-insert into dog values(19, 'Bailey', 'Female', 9, 'Medium', 1);
-insert into dog values(20, 'Sophie', 'Female', 4, 'Medium', 1);
-insert into dog values(21, 'Elvis', 'Male', 5, 'Large', 4);
-insert into dog values(22, 'Frankie', 'Male', 10, 'Large', 5);
-insert into dog values(23, 'Rudy', 'Female', 4, 'Large', 7);
-insert into dog values(24, 'Mickey', 'Female', 8, 'Large', 2);
-insert into dog values(25, 'Coco', 'Female', 2, 'Medium', 10);
-insert into dog values(26, 'Loki', 'Female', 1, 'Small', 9);
-insert into dog values(27, 'Sammy', 'Female', 1, 'Small', 13);
-insert into dog values(28, 'Brutus', 'Male', 8, 'Large', 14);
-insert into dog values(29, 'Tank', 'Male', 3, 'Large', 5);
-insert into dog values(30, 'Ollie', 'Female', 2, 'Large', 6);
-insert into dog values(31, 'Yoda', 'Female', 8, 'Small', 11);
-insert into dog values(32, 'Tyson', 'Male', 2, 'Large', 12);
-insert into dog values(33, 'Chester', 'Male', 9, 'Large', 3);
-insert into dog values(34, 'Moose', 'Male', 3, 'Large', 4);
-insert into dog values(35, 'Chico', 'Male', 3, 'Large', 6);
+insert into dog values(1, 'Max', 'Male', 3, 'Small', 13, 13);
+insert into dog values(2, 'Charlie', 'Male', 7, 'Large', 8, 13);
+insert into dog values(3, 'Cooper', 'Male', 1, 'Medium', 1, 13);
+insert into dog values(4, 'Buddy', 'Male', 5, 'Medium', 1, 13);
+insert into dog values(5, 'Jack', 'Male', 7, 'Medium', 1, 24);
+insert into dog values(6, 'Rocky', 'Male', 2, 'Medium', 1, 24);
+insert into dog values(7, 'Oliver', 'Male', 4, 'Medium', 1, 24);
+insert into dog values(8, 'Bear', 'Male', 9, 'Medium', 1, 24);
+insert into dog values(9, 'Duke', 'Male', 6, 'Medium', 1,24);
+insert into dog values(10, 'Tucker', 'Male', 6, 'Medium', 1, 5);
+insert into dog values(11, 'Bella', 'Female', 3, 'Medium', 1, 5);
+insert into dog values(12, 'Lucy', 'Female', 4, 'Medium', 1, 5);
+insert into dog values(13, 'Daisy', 'Female', 2, 'Medium', 1, 5);
+insert into dog values(14, 'Luna', 'Female', 1, 'Medium', 1, 5);
+insert into dog values(15, 'Lola', 'Female', 9, 'Medium', 1, 27);
+insert into dog values(16, 'Sadie', 'Female', 6, 'Medium', 1, 27);
+insert into dog values(17, 'Molly', 'Female', 7, 'Medium', 1, 27);
+insert into dog values(18, 'Maggie', 'Female', 4, 'Medium', 1, 27);
+insert into dog values(19, 'Bailey', 'Female', 9, 'Medium', 1, 27);
+insert into dog values(20, 'Sophie', 'Female', 4, 'Medium', 1, 9);
+insert into dog values(21, 'Elvis', 'Male', 5, 'Large', 4, 9);
+insert into dog values(22, 'Frankie', 'Male', 10, 'Large', 5, 9);
+insert into dog values(23, 'Rudy', 'Female', 4, 'Large', 7, 9);
+insert into dog values(24, 'Mickey', 'Female', 8, 'Large', 2, 9);
+insert into dog values(25, 'Coco', 'Female', 2, 'Medium', 10, 31);
+insert into dog values(26, 'Loki', 'Female', 1, 'Small', 9, 31);
+insert into dog values(27, 'Sammy', 'Female', 1, 'Small', 13, 31);
+insert into dog values(28, 'Brutus', 'Male', 8, 'Large', 14, 31);
+insert into dog values(29, 'Tank', 'Male', 3, 'Large', 5, 31);
+insert into dog values(30, 'Ollie', 'Female', 2, 'Large', 6, 31);
+insert into dog values(31, 'Yoda', 'Female', 8, 'Small', 11, 13);
+insert into dog values(32, 'Tyson', 'Male', 2, 'Large', 12, 13);
+insert into dog values(33, 'Chester', 'Male', 9, 'Large', 3, 13);
+insert into dog values(34, 'Moose', 'Male', 3, 'Large', 4, 13);
+insert into dog values(35, 'Chico', 'Male', 3, 'Large', 6, 13);
 
 
 create table adoptee(
@@ -198,6 +200,40 @@ adopte_lname varchar(30) not null,
 adopte_phone varchar(10) not null,
 primary key (adopte_id)
 )engine=innoDB;
+
+insert into adoptee values(7001, 'Joanne', 'Cheek','804-224-7373');
+insert into adoptee values(7002, 'George', 'Poor', '870-486-6448');
+insert into adoptee values(7003, 'Brett', 'Booker', '810-732-6531');
+insert into adoptee values(7004, 'Sara', 'Adams', '617-351-5834');
+insert into adoptee values(7005, 'Richard', 'Rust', '304-206-9946');
+insert into adoptee values(7006, 'Wade', 'McDade', '617-332-8695');
+insert into adoptee values(7007, 'Joseph', 'Brown', '860-235-6099');
+insert into adoptee values(7008, 'Stephen', 'Wilcox', '917-477-5703');
+insert into adoptee values(7009, 'Henry', 'Thompson', '847-392-7978');
+insert into adoptee values(7010, 'James', 'Bradberry', '781-272-1969');
+insert into adoptee values(7011, 'Angela', 'Licht', '559-865-3882');
+insert into adoptee values(7012, 'Ralph', 'McRaney', '369-800-7683');
+insert into adoptee values(7013, 'Kirby', 'Ballard', '757-609-9015');
+insert into adoptee values(7014, 'Constance', 'Tunnell', '409-780-0513');
+insert into adoptee values(7015, 'Nancy', 'Chamberlin', '925-570-7074');
+insert into adoptee values(7016, 'Jeffrey', 'Brady', '401-386-3330');
+insert into adoptee values(7017, 'Dennis', 'Rios', '786-432-4694');
+insert into adoptee values(7018, 'Andrea', 'Beal', '215-220-6985');
+insert into adoptee values(7019, 'Debra', 'Curry', '512-459-7707');
+insert into adoptee values(7020, 'John', 'Watson', '630-744-0461');
+insert into adoptee values(7021, 'Wesley', 'Arocho', '978-983-6607');
+insert into adoptee values(7022, 'Victor', 'Curtis', '435-760-2165');
+insert into adoptee values(7023, 'David', 'Cox', '281-648-5210');
+insert into adoptee values(7024, 'Frank', 'Houston', '217-540-6577');
+insert into adoptee values(7025, 'Rhonda', 'Hanson', '716-318-4236');
+insert into adoptee values(7026, 'Mary', 'Cummings', '303-987-5653');
+insert into adoptee values(7027, 'Laurence', 'Beck', '423-636-8288');
+insert into adoptee values(7028, 'Elizabeth', 'Solano', '917-565-2053');
+insert into adoptee values(7029, 'Kim', 'Finnegan', '251-375-2081');
+insert into adoptee values(7030, 'Rose', 'Sayers', '615-426-0698');
+
+
+
 
 create table visit(
 visit_id int(11),
