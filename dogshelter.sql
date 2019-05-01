@@ -1,4 +1,4 @@
-
+drop database if exists dogshelters;
 create database dogshelters;
 use dogshelters;
 
