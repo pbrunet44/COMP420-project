@@ -397,6 +397,17 @@ primary key(fav_id, dog_id),
 foreign key (dog_id) references dog(dog_id),
 foreign key (fav_id) references favorites_list(fav_id)
 )engine=innoDB;
+insert into pet_list values(10001, 1),
+(10002, 4),
+(10003, 12),
+(10004, 15),
+(10005, 2),
+(10006, 22),
+(10007, 19),
+(10008, 1),
+(10009, 31),
+(10010, 34),
+(10010, 33);
 
 
 ##################### Views & Procedures ##################### 
