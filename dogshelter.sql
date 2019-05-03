@@ -416,7 +416,7 @@ insert into pet_list values(10001, 1),
 (10010, 33);
 
 
-##################### Views & Procedures ##################### 
+##################### Views, Procedures  & Triggers ##################### 
 
 drop view if exists all_dogs;
 create view all_dogs as 
@@ -492,6 +492,16 @@ join dog on foster_cert.dog_id = dog.dog_id
 join shelter on shelter.sh_id = dog.sh_id;
 # select * from all_fosters;
 #-----------------------------------------------------------------------------
+drop view if exists all_shelter_totals;
+create view all_shelter_totals as 
+select
+shelter.sh_name as "Shelter",
+count(shelter.sh_id) as "Number of Dogs"
+from dog
+join shelter on shelter.sh_id = dog.sh_id
+group by shelter.sh_id;
+# select * from all_shelter_totals;
+#-----------------------------------------------------------------------------
 /*
 	Enter an adoptee's id and their list of dogs will appear.
 */
@@ -508,3 +518,20 @@ join dog on pet_list.dog_id = dog.dog_id
 where favorites_list.adopte_id = adopte_id;
 end //
 # call fav_lists(7029);
+#-----------------------------------------------------------------------------
+/*
+	Individual Shelter's number of dogs
+*/
+drop procedure if exists shelter_dog_count;
+delimiter //
+create procedure shelter_dog_count(in shelter_id int(11))
+begin
+select
+shelter.sh_name as "Shelter",
+count(shelter.sh_id) as "Number of Dogs"
+from dog
+join shelter on shelter.sh_id = dog.sh_id
+where shelter_id = shelter.sh_id;
+end //
+# call shelter_dog_count(9);
+#-----------------------------------------------------------------------------
