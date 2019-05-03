@@ -418,6 +418,7 @@ insert into pet_list values(10001, 1),
 
 ##################### Views, Procedures  & Triggers ##################### 
 
+
 drop view if exists all_dogs;
 create view all_dogs as 
 select 
@@ -432,7 +433,7 @@ join breed on dog.breed_id = breed.breed_id
 order by dog.dog_age asc;
 # select * from all_dogs;
 
-#-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------- 1
 drop view if exists all_employees;
 create view all_employees as 
 select 
@@ -447,7 +448,7 @@ join employees on employees.sh_id = shelter.sh_id
 join job_title on employees.job_id = job_title.job_id;
 # select * from all_employees;
 
-#-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------- 2
 drop view if exists all_visits;
 create view all_visits as 
 select 
@@ -462,7 +463,7 @@ join adoptee on visit.adopte_id = adoptee.adopte_id
 order by visit.visit_date desc;
 # select * from all_visits
 
-#-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------- 3
 drop view if exists all_adoptions;
 create view all_adoptions as 
 select  
@@ -477,7 +478,7 @@ join shelter on dog.sh_id = shelter.sh_id
 order by adoption_cert.ad_date desc;
 # select * from all_adoptions;
 
-#-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------- 4
 drop view if exists all_fosters;
 create view all_fosters as 
 select 
@@ -491,7 +492,7 @@ join foster on foster_cert.foster_id = foster.foster_id
 join dog on foster_cert.dog_id = dog.dog_id
 join shelter on shelter.sh_id = dog.sh_id;
 # select * from all_fosters;
-#-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------- 5
 drop view if exists all_shelter_totals;
 create view all_shelter_totals as 
 select
@@ -501,7 +502,7 @@ from dog
 join shelter on shelter.sh_id = dog.sh_id
 group by shelter.sh_id;
 # select * from all_shelter_totals;
-#-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------- 6
 /*
 	Enter an adoptee's id and their list of dogs will appear.
 */
@@ -518,7 +519,7 @@ join dog on pet_list.dog_id = dog.dog_id
 where favorites_list.adopte_id = adopte_id;
 end //
 # call fav_lists(7029);
-#-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------- 7
 /*
 	Individual Shelter's number of dogs
 */
@@ -534,4 +535,18 @@ join shelter on shelter.sh_id = dog.sh_id
 where shelter_id = shelter.sh_id;
 end //
 # call shelter_dog_count(9);
+#----------------------------------------------------------------------------- 8
+drop procedure if exists shelter_adopt_count; 
+delimiter //
+create procedure shelter_adopt_count(in shelter_id int(11))
+begin
+select
+shelter.sh_name as "Shelter",
+count(adoption_cert.acert_id) as "Adoptions"
+from adoption_cert
+join dog on adoption_cert.dog_id = dog.dog_id
+join shelter on dog.sh_id = shelter.sh_id
+where   shelter.sh_id = shelter_id;
+end //
+# call shelter_adopt_count(13)
 #-----------------------------------------------------------------------------
