@@ -430,8 +430,8 @@ from dog
 join shelter on dog.sh_id = shelter.sh_id
 join breed on dog.breed_id = breed.breed_id
 order by dog.dog_age asc;
-
 # select * from all_dogs;
+
 #-----------------------------------------------------------------------------
 drop view if exists all_employees;
 create view all_employees as 
@@ -445,8 +445,8 @@ employees.em_end as "End Date"
 from shelter
 join employees on employees.sh_id = shelter.sh_id
 join job_title on employees.job_id = job_title.job_id;
-
 # select * from all_employees;
+
 #-----------------------------------------------------------------------------
 drop view if exists all_visits;
 create view all_visits as 
@@ -461,6 +461,7 @@ join shelter on dog.sh_id = shelter.sh_id
 join adoptee on visit.adopte_id = adoptee.adopte_id
 order by visit.visit_date desc;
 # select * from all_visits
+
 #-----------------------------------------------------------------------------
 drop view if exists all_adoptions;
 create view all_adoptions as 
@@ -475,4 +476,19 @@ join dog on adoption_cert.dog_id = dog.dog_id
 join shelter on dog.sh_id = shelter.sh_id
 order by adoption_cert.ad_date desc;
 # select * from all_adoptions;
+
+#-----------------------------------------------------------------------------
+drop view if exists all_fosters;
+create view all_fosters as 
+select 
+dog.dog_name as "Dog",
+shelter.sh_name as "Shelter",
+concat(foster.foster_fname, " ", foster.foster_lname) as "Foster Parent",
+foster_cert.fcert_startDate as "Start Date",
+foster_cert.fcert_endDate as "End Date"
+from foster_cert
+join foster on foster_cert.foster_id = foster.foster_id
+join dog on foster_cert.dog_id = dog.dog_id
+join shelter on shelter.sh_id = dog.sh_id;
+# select * from all_fosters;
 #-----------------------------------------------------------------------------
