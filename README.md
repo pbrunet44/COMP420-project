@@ -1,5 +1,5 @@
 # COMP420-project
-SQL project for COMP 420: A database for a fictional dog shelter.
+SQL project for COMP 420: A database for a fictional collective network of dog shelters.
 
 Philip Brunet and Darius Jones
 
