@@ -549,4 +549,21 @@ join shelter on dog.sh_id = shelter.sh_id
 where   shelter.sh_id = shelter_id;
 end //
 # call shelter_adopt_count(13)
+#----------------------------------------------------------------------------- 9
+drop procedure if exists dog_popularity_by_shelter; 
+delimiter //
+create procedure dog_popularity_by_shelter(in shelter_id int(11))
+begin
+select 
+shelter.sh_name as "Shelter",
+dog.dog_name as "Dog",
+count(dog.dog_id) as "Visits"
+from favorites_list
+join pet_list on pet_list.fav_id = favorites_list.fav_id
+join dog on pet_list.dog_id = dog.dog_id
+join shelter on shelter.sh_id = dog.sh_id
+where shelter.sh_id = shelter_id
+group by pet_list.dog_id;
+end //
+# call dog_popularity_by_shelter(13)
 #-----------------------------------------------------------------------------
