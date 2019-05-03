@@ -243,41 +243,42 @@ foreign key (sh_id) references shelter(sh_id),
 foreign key (dog_id) references dog(dog_id),
 foreign key (adopte_id) references adoptee(adopte_id)
 )engine=innoDB;
-insert into visit values (3001, '2018-05-24', 13, 1, 7001),
-(3002, '2018-06-02', 13, 4, 7002),
-(3003, '2018-06-04', 13, 1, 7001),
-(3004, '2018-06-04', 24, 7, 7003),
-(3005, '2018-06-07', 5, 12, 7030),
-(3006, '2018-06-13', 27, 15, 7029),
-(3007, '2018-06-15', 27, 19, 7017),
-(3008, '2018-07-01',5, 11, 7013),
-(3009, '2018-07-12', 5, 14, 7012),
-(3010, '2018-07-20', 5, 13, 7009),
-(3011, '2018-07-21', 24, 9, 7005),
-(3012, '2018-07-28', 5, 14, 7007),
-(3013, '2018-07-29', 24, 8, 7003),
-(3014, '2018-07-30', 24, 6, 7025),
-(3015, '2018-08-02', 5, 13, 7022),
-(3016, '2018-08-03', 5, 11, 7023),
-(3017, '2018-08-11', 24, 5, 7014),
-(3018, '2018-08-19', 13, 3, 7016),
-(3019, '2018-08-20', 13, 2, 7015),
-(3020, '2018-08-27', 5, 10, 7003),
-(3021, '2018-08-29', 31, 30, 7018),
-(3022, '2018-08-30', 9, 24, 7019),
-(3023, '2018-09-01', 31, 25, 7020),
-(3024, '2018-09-15', 9, 21, 7004),
-(3025, '2018-09-21', 9, 22, 7006),
-(3026, '2018-10-01', 31, 27, 7009),
-(3027, '2018-10-02', 9, 23, 7010),
-(3028, '2018-10-13', 31, 30, 7011),
-(3029, '2018-10-23', 27, 19, 7012),
-(3030, '2018-11-02', 13, 1, 7021),
-(3031, '2018-12-01', 13, 31, 7016),
-(3032, '2018-12-10', 13, 34, 7009),
-(3033, '2018-12-31', 13, 32, 7028),
-(3034, '2019-01-05', 27, 17, 7017),
-(3035, '2019-02-01', 13, 33, 7009);
+
+insert into visit values (3001, '2018-05-24 12:00', 13, 1, 7001),
+(3002, '2018-06-02 09:25', 13, 4, 7002),
+(3003, '2018-06-04 10:10', 13, 1, 7001),
+(3004, '2018-06-04 15:30', 24, 7, 7003),
+(3005, '2018-06-07 14:00', 5, 12, 7030),
+(3006, '2018-06-13 10:00', 27, 15, 7029),
+(3007, '2018-06-15 13:10', 27, 19, 7017),
+(3008, '2018-07-01 09:10',5, 11, 7013),
+(3009, '2018-07-12 12:30', 5, 14, 7012),
+(3010, '2018-07-20 14:10', 5, 13, 7009),
+(3011, '2018-07-21 14:50', 24, 9, 7005),
+(3012, '2018-07-28 09:50', 5, 14, 7007),
+(3013, '2018-07-29 12:00', 24, 8, 7003),
+(3014, '2018-07-30 13:10', 24, 6, 7025),
+(3015, '2018-08-02 15:40', 5, 13, 7022),
+(3016, '2018-08-03 14:50', 5, 11, 7023),
+(3017, '2018-08-11 17:00', 24, 5, 7014),
+(3018, '2018-08-19 15:40', 13, 3, 7016),
+(3019, '2018-08-20 16:20', 13, 2, 7015),
+(3020, '2018-08-27 09:40', 5, 10, 7003),
+(3021, '2018-08-29 14:10', 31, 30, 7018),
+(3022, '2018-08-30 12:50', 9, 24, 7019),
+(3023, '2018-09-01 14:30', 31, 25, 7020),
+(3024, '2018-09-15 15:50', 9, 21, 7004),
+(3025, '2018-09-21 13:20', 9, 22, 7006),
+(3026, '2018-10-01 09:30', 31, 27, 7009),
+(3027, '2018-10-02 10:50', 9, 23, 7010),
+(3028, '2018-10-13 14:00', 31, 30, 7011),
+(3029, '2018-10-23 16:20', 27, 19, 7012),
+(3030, '2018-11-02 14:40', 13, 1, 7021),
+(3031, '2018-12-01 12:50', 13, 31, 7016),
+(3032, '2018-12-10 12:00', 13, 34, 7009),
+(3033, '2018-12-31 14:30', 13, 32, 7028),
+(3034, '2019-01-05 15:40', 27, 17, 7017),
+(3035, '2019-02-01 11:10', 13, 33, 7009);
 
 create table adoption_cert(
 acert_id int(11),
@@ -288,6 +289,7 @@ primary key(acert_id, dog_id, adopte_id),
 foreign key (dog_id) references dog(dog_id),
 foreign key (adopte_id) references adoptee(adopte_id)
 )engine=innoDB;
+
 insert into adoption_cert values (5001, '2018-05-30', 29, 7008),
 (5001, '2018-06-04', 4, 7002),
 (5002, '2018-06-11', 12, 7030),
@@ -310,21 +312,22 @@ create table foster(
 foster_id int(11),
 foster_fname varchar(30) not null,
 foster_lname varchar(30) not null,
-foster_phone varchar(10) not null,
+foster_phone varchar(15) not null,
 primary key (foster_id)
 )engine=innoDB;
-insert into foster values(1, 'Melissa', 'Burrow', '7555782404'),
-(2, 'Dorcas', 'Knaack', '5623432322'),
-(3, 'Kristina', 'Anderson', '9206132173'),
-(4, 'Sharon', 'Cooper', '5413894847'),
-(5, 'Bernadette', 'Ward', '2706506155'),
-(6, 'William', 'Santiago', '9729252467'),
-(7, 'Charles', 'Hudson', '5593880472'),
-(8, 'Juan', 'Lewis', '3048253351'),
-(9, 'Louella', 'Wagner', '5305453014'),
-(10, 'Ray', 'Wilkinson', '6309617170'),
-(11, 'Booker', 'McCarthy', '9405678600'),
-(12, 'Joshua', 'Warner', '6264495151');
+
+insert into foster values(1, 'Melissa', 'Burrow', '755-578-2404'),
+(2, 'Dorcas', 'Knaack', '562-343-2322'),
+(3, 'Kristina', 'Anderson', '920-613-2173'),
+(4, 'Sharon', 'Cooper', '541-389-4847'),
+(5, 'Bernadette', 'Ward', '270-650-6155'),
+(6, 'William', 'Santiago', '972-925-2467'),
+(7, 'Charles', 'Hudson', '559-388-0472'),
+(8, 'Juan', 'Lewis', '304-825-3351'),
+(9, 'Louella', 'Wagner', '530-545-3014'),
+(10, 'Ray', 'Wilkinson', '630-961-7170'),
+(11, 'Booker', 'McCarthy', '940-567-8600'),
+(12, 'Joshua', 'Warner', '626-449-5151');
 
 create table foster_cert(
 fcert_id int(11),
@@ -336,6 +339,7 @@ primary key(fcert_id, dog_id, foster_id),
 foreign key (dog_id) references dog(dog_id),
 foreign key (foster_id) references foster(foster_id)
 )engine=innoDB;
+
 insert into foster_cert values (1301, '2018-06-22', '2021-06-24', 1, 1),
 (1302, '2017-05-23', '2020-03-22', 2, 1),
 (1303, '2019-01-01', '2021-06-05', 3, 2),
@@ -379,6 +383,7 @@ adopte_id int(11),
 primary key(fav_id),
 foreign key (adopte_id) references adoptee(adopte_id)
 )engine=innoDB;
+
 insert into favorites_list values (10001, '2018-05-24', 7001),
 (10002, '2018-06-02', 7002),
 (10003, '2018-06-07', 7030),
@@ -397,6 +402,7 @@ primary key(fav_id, dog_id),
 foreign key (dog_id) references dog(dog_id),
 foreign key (fav_id) references favorites_list(fav_id)
 )engine=innoDB;
+
 insert into pet_list values(10001, 1),
 (10002, 4),
 (10003, 12),
@@ -440,8 +446,23 @@ from shelter
 join employees on employees.sh_id = shelter.sh_id
 join job_title on employees.job_id = job_title.job_id;
 
- # select * from all_employees;
+# select * from all_employees;
+#-----------------------------------------------------------------------------
+drop view if exists all_visits;
+create view all_visits as 
+select 
+concat(adopte_fname, "  ", adopte_lname) as "Adoptee",
+dog_name "Dog",
+shelter.sh_name as "Shelter",
+visit.visit_date as "Visit Date and Time"
+from visit
+join dog on dog.dog_id = visit.dog_id
+join shelter on dog.sh_id = shelter.sh_id
+join adoptee on visit.adopte_id = adoptee.adopte_id
+order by visit.visit_date desc;
 
+# select * from all_visits
 
+#-----------------------------------------------------------------------------
 
 
