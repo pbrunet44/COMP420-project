@@ -492,3 +492,19 @@ join dog on foster_cert.dog_id = dog.dog_id
 join shelter on shelter.sh_id = dog.sh_id;
 # select * from all_fosters;
 #-----------------------------------------------------------------------------
+/*
+	Enter an adoptee's id and their list of dogs will appear.
+*/
+drop procedure if exists fav_lists;
+delimiter //
+create procedure fav_lists(in adopte_id int(11))
+begin
+select 
+dog.dog_name as "Dog"
+from favorites_list
+join pet_list on favorites_list.fav_id = pet_list.fav_id
+join adoptee on adoptee.adopte_id=favorites_list.adopte_id
+join dog on pet_list.dog_id = dog.dog_id
+where favorites_list.adopte_id = adopte_id;
+end //
+# call fav_lists(7029);
