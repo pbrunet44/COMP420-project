@@ -460,9 +460,19 @@ join dog on dog.dog_id = visit.dog_id
 join shelter on dog.sh_id = shelter.sh_id
 join adoptee on visit.adopte_id = adoptee.adopte_id
 order by visit.visit_date desc;
-
 # select * from all_visits
-
 #-----------------------------------------------------------------------------
-
-
+drop view if exists all_adoptions;
+create view all_adoptions as 
+select  
+concat(adopte_fname, "  ", adopte_lname) as "Adoptee",
+dog.dog_name as  "Dog",
+adoption_cert.ad_date as "Adoption Date",
+shelter.sh_name as "Shelter"
+from adoption_cert
+join adoptee on adoption_cert.adopte_id = adoptee.adopte_id
+join dog on adoption_cert.dog_id = dog.dog_id
+join shelter on dog.sh_id = shelter.sh_id
+order by adoption_cert.ad_date desc;
+# select * from all_adoptions;
+#-----------------------------------------------------------------------------
