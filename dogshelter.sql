@@ -514,7 +514,7 @@ select
 dog.dog_name as "Dog"
 from favorites_list
 join pet_list on favorites_list.fav_id = pet_list.fav_id
-join adoptee on adoptee.adopte_id=favorites_list.adopte_id
+join adopter on adopter.adopte_id=favorites_list.adopte_id
 join dog on pet_list.dog_id = dog.dog_id
 where favorites_list.adopte_id = adopte_id;
 end //
