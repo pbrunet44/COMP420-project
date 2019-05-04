@@ -9,7 +9,7 @@ drop table if exists dog;							#4
 drop table if exists breed;							#5
 drop table if exists visit;							#6
 drop table if exists pet_list;						#7
-drop table if exists adoptee;						#8
+drop table if exists adopter;						#8
 drop table if exists foster;						#9
 drop table if exists foster_cert;					#10
 drop table if exists adoption_cert;					#11
@@ -193,7 +193,7 @@ insert into dog values(34, 'Moose', 'Male', 3, 'Large', 4, 13);
 insert into dog values(35, 'Chico', 'Male', 3, 'Large', 6, 13);
 
 
-create table adoptee(
+create table adopter(
 adopte_id int(11),
 adopte_fname varchar(30) not null,
 adopte_lname varchar(30) not null,
@@ -201,36 +201,36 @@ adopte_phone varchar(15) not null,
 primary key (adopte_id)
 )engine=innoDB;
 
-insert into adoptee values(7001, 'Joanne', 'Cheek','804-224-7373');
-insert into adoptee values(7002, 'George', 'Poor', '870-486-6448');
-insert into adoptee values(7003, 'Brett', 'Booker', '810-732-6531');
-insert into adoptee values(7004, 'Sara', 'Adams', '617-351-5834');
-insert into adoptee values(7005, 'Richard', 'Rust', '304-206-9946');
-insert into adoptee values(7006, 'Wade', 'McDade', '617-332-8695');
-insert into adoptee values(7007, 'Joseph', 'Brown', '860-235-6099');
-insert into adoptee values(7008, 'Stephen', 'Wilcox', '917-477-5703');
-insert into adoptee values(7009, 'Henry', 'Thompson', '847-392-7978');
-insert into adoptee values(7010, 'James', 'Bradberry', '781-272-1969');
-insert into adoptee values(7011, 'Angela', 'Licht', '559-865-3882');
-insert into adoptee values(7012, 'Ralph', 'McRaney', '369-800-7683');
-insert into adoptee values(7013, 'Kirby', 'Ballard', '757-609-9015');
-insert into adoptee values(7014, 'Constance', 'Tunnell', '409-780-0513');
-insert into adoptee values(7015, 'Nancy', 'Chamberlin', '925-570-7074');
-insert into adoptee values(7016, 'Jeffrey', 'Brady', '401-386-3330');
-insert into adoptee values(7017, 'Dennis', 'Rios', '786-432-4694');
-insert into adoptee values(7018, 'Andrea', 'Beal', '215-220-6985');
-insert into adoptee values(7019, 'Debra', 'Curry', '512-459-7707');
-insert into adoptee values(7020, 'John', 'Watson', '630-744-0461');
-insert into adoptee values(7021, 'Wesley', 'Arocho', '978-983-6607');
-insert into adoptee values(7022, 'Victor', 'Curtis', '435-760-2165');
-insert into adoptee values(7023, 'David', 'Cox', '281-648-5210');
-insert into adoptee values(7024, 'Frank', 'Houston', '217-540-6577');
-insert into adoptee values(7025, 'Rhonda', 'Hanson', '716-318-4236');
-insert into adoptee values(7026, 'Mary', 'Cummings', '303-987-5653');
-insert into adoptee values(7027, 'Laurence', 'Beck', '423-636-8288');
-insert into adoptee values(7028, 'Elizabeth', 'Solano', '917-565-2053');
-insert into adoptee values(7029, 'Kim', 'Finnegan', '251-375-2081');
-insert into adoptee values(7030, 'Rose', 'Sayers', '615-426-0698');
+insert into adopter values(7001, 'Joanne', 'Cheek','804-224-7373');
+insert into adopter values(7002, 'George', 'Poor', '870-486-6448');
+insert into adopter values(7003, 'Brett', 'Booker', '810-732-6531');
+insert into adopter values(7004, 'Sara', 'Adams', '617-351-5834');
+insert into adopter values(7005, 'Richard', 'Rust', '304-206-9946');
+insert into adopter values(7006, 'Wade', 'McDade', '617-332-8695');
+insert into adopter values(7007, 'Joseph', 'Brown', '860-235-6099');
+insert into adopter values(7008, 'Stephen', 'Wilcox', '917-477-5703');
+insert into adopter values(7009, 'Henry', 'Thompson', '847-392-7978');
+insert into adopter values(7010, 'James', 'Bradberry', '781-272-1969');
+insert into adopter values(7011, 'Angela', 'Licht', '559-865-3882');
+insert into adopter values(7012, 'Ralph', 'McRaney', '369-800-7683');
+insert into adopter values(7013, 'Kirby', 'Ballard', '757-609-9015');
+insert into adopter values(7014, 'Constance', 'Tunnell', '409-780-0513');
+insert into adopter values(7015, 'Nancy', 'Chamberlin', '925-570-7074');
+insert into adopter values(7016, 'Jeffrey', 'Brady', '401-386-3330');
+insert into adopter values(7017, 'Dennis', 'Rios', '786-432-4694');
+insert into adopter values(7018, 'Andrea', 'Beal', '215-220-6985');
+insert into adopter values(7019, 'Debra', 'Curry', '512-459-7707');
+insert into adopter values(7020, 'John', 'Watson', '630-744-0461');
+insert into adopter values(7021, 'Wesley', 'Arocho', '978-983-6607');
+insert into adopter values(7022, 'Victor', 'Curtis', '435-760-2165');
+insert into adopter values(7023, 'David', 'Cox', '281-648-5210');
+insert into adopter values(7024, 'Frank', 'Houston', '217-540-6577');
+insert into adopter values(7025, 'Rhonda', 'Hanson', '716-318-4236');
+insert into adopter values(7026, 'Mary', 'Cummings', '303-987-5653');
+insert into adopter values(7027, 'Laurence', 'Beck', '423-636-8288');
+insert into adopter values(7028, 'Elizabeth', 'Solano', '917-565-2053');
+insert into adopter values(7029, 'Kim', 'Finnegan', '251-375-2081');
+insert into adopter values(7030, 'Rose', 'Sayers', '615-426-0698');
 
 create table visit(
 visit_id int(11),
@@ -241,7 +241,7 @@ adopte_id int(11),
 primary key(visit_id),
 foreign key (sh_id) references shelter(sh_id),
 foreign key (dog_id) references dog(dog_id),
-foreign key (adopte_id) references adoptee(adopte_id)
+foreign key (adopte_id) references adopter(adopte_id)
 )engine=innoDB;
 
 insert into visit values (3001, '2018-05-24 12:00', 13, 1, 7001),
@@ -287,7 +287,7 @@ dog_id int(11),
 adopte_id int(11),
 primary key(acert_id, dog_id, adopte_id),
 foreign key (dog_id) references dog(dog_id),
-foreign key (adopte_id) references adoptee(adopte_id)
+foreign key (adopte_id) references adopter(adopte_id)
 )engine=innoDB;
 
 insert into adoption_cert values (5001, '2018-05-30', 29, 7008),
@@ -381,7 +381,7 @@ fav_id int(11),
 created_date DATE NOT NULL,
 adopte_id int(11),
 primary key(fav_id),
-foreign key (adopte_id) references adoptee(adopte_id)
+foreign key (adopte_id) references adopter(adopte_id)
 )engine=innoDB;
 
 insert into favorites_list values (10001, '2018-05-24', 7001),
@@ -452,14 +452,14 @@ join job_title on employees.job_id = job_title.job_id;
 drop view if exists all_visits;
 create view all_visits as 
 select 
-concat(adopte_fname, "  ", adopte_lname) as "Adoptee",
+concat(adopte_fname, "  ", adopte_lname) as "Adopter",
 dog_name "Dog",
 shelter.sh_name as "Shelter",
 visit.visit_date as "Visit Date and Time"
 from visit
 join dog on dog.dog_id = visit.dog_id
 join shelter on dog.sh_id = shelter.sh_id
-join adoptee on visit.adopte_id = adoptee.adopte_id
+join adopter on visit.adopte_id = adopter.adopte_id
 order by visit.visit_date desc;
 # select * from all_visits
 
@@ -467,12 +467,12 @@ order by visit.visit_date desc;
 drop view if exists all_adoptions;
 create view all_adoptions as 
 select  
-concat(adopte_fname, "  ", adopte_lname) as "Adoptee",
+concat(adopte_fname, "  ", adopte_lname) as "Adopter",
 dog.dog_name as  "Dog",
 adoption_cert.ad_date as "Adoption Date",
 shelter.sh_name as "Shelter"
 from adoption_cert
-join adoptee on adoption_cert.adopte_id = adoptee.adopte_id
+join adopter on adoption_cert.adopte_id = adopter.adopte_id
 join dog on adoption_cert.dog_id = dog.dog_id
 join shelter on dog.sh_id = shelter.sh_id
 order by adoption_cert.ad_date desc;
