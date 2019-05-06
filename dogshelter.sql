@@ -548,7 +548,7 @@ join dog on adoption_cert.dog_id = dog.dog_id
 join shelter on dog.sh_id = shelter.sh_id
 where   shelter.sh_id = shelter_id;
 end //
-# call shelter_adopt_count(13)
+# call shelter_adopt_count(13);
 #----------------------------------------------------------------------------- 9
 drop procedure if exists dog_popularity_by_shelter; 
 delimiter //
@@ -565,5 +565,40 @@ join shelter on shelter.sh_id = dog.sh_id
 where shelter.sh_id = shelter_id
 group by pet_list.dog_id;
 end //
-# call dog_popularity_by_shelter(13)
-#-----------------------------------------------------------------------------
+# call dog_popularity_by_shelter(13);
+#----------------------------------------------------------------------------- 10
+drop procedure if exists adopter_activity;
+delimeter //
+create procedure adopter_activity(in adopte_id int(11))
+begin
+select
+concat(adopter.adopte_fname, " ", adopter.adopte_lname) as "Adopter",
+count(visit.adopte_id) as "Shelter Visits",
+count(adoption_cert.adopte_id) as "Dogs adopted",
+count(pet_list.fav_id) as "Dogs favorited"
+from adopter
+join visit on visit.adopte_id = adopter.adopte_id
+join adoption_cert on adoption_cert.adopte_id = adopter.adopte_id
+join favorites_list on favorites_list.adopte_id = adopter.adopte_id
+join pet_list on pet_list.fav_id = favorites_list.fav_id
+where adopter.adopte_id = adopte_id;
+end //
+# call adopter_activity(7009);
+#----------------------------------------------------------------------------- 11
+drop procedure if exists search_employee_roles;
+delimeter //
+create procedure search_employee_roles(in role_name VARCHAR(30))
+begin
+select
+concat(employee.em_fname, "  ", employee.em_lname) as "Name",
+shelter.sh_name as "Shelter",
+shelter.sh_phone as "Shelter Contact",
+employees.em_start as "Start Date",
+employees.em_end as "End Date"
+from shelter
+join employees on employees.sh_id = shelter.sh_id
+join job_title on employees.job_id = job_title.job_id;
+where  strcmp(job_title.job_title, role_name) = 0;
+end//
+# call search_employee_roles("Veterinarian")
+#----------------------------------------------------------------------------- 12
