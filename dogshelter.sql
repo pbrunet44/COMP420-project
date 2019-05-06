@@ -603,3 +603,22 @@ where all_dogs.Breed LIKE concat("%", breed_name, "%");
 end //
 # call search_dog_breed("Pitbull");
 #----------------------------------------------------------------------------- 13
+drop procedure if exists search_dog_energy_level;
+delimiter //
+create procedure search_dog_energy_level(in energy_level VARCHAR(30))
+begin
+select 
+dog.dog_name as "Name", dog.dog_gender as "Gender", 
+dog.dog_age as "Age", dog.dog_size as  "Size", 
+breed.breed_name as "Breed",
+breed.breed_exercise as "Energy Level",
+shelter.sh_name as "Shelter",
+shelter.sh_phone as "Contact"
+from dog 
+join shelter on dog.sh_id = shelter.sh_id
+join breed on dog.breed_id = breed.breed_id
+where breed.breed_exercise LIKE concat("%", energy_level, "%")
+order by dog.dog_age asc;
+end //
+# call search_dog_energy_level("low");
+#----------------------------------------------------------------------------- 14
