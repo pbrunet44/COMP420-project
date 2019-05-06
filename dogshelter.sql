@@ -597,8 +597,8 @@ employees.em_start as "Start Date",
 employees.em_end as "End Date"
 from shelter
 join employees on employees.sh_id = shelter.sh_id
-join job_title on employees.job_id = job_title.job_id;
+join job_title on employees.job_id = job_title.job_id
 where  strcmp(job_title.job_title, role_name) = 0;
 end//
-# call search_employee_roles("Veterinarian")
+# call search_employee_roles("Veterinarian");
 #----------------------------------------------------------------------------- 12
