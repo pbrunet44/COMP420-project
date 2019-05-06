@@ -593,3 +593,13 @@ where strcmp(all_employees.Role, role_name) = 0;
 end//
 # call search_employee_roles("Veterinarian");
 #----------------------------------------------------------------------------- 12
+drop procedure if exists search_dog_breed;
+delimiter //
+create procedure search_dog_breed(in breed_name VARCHAR(30))
+begin
+select 
+* from all_dogs
+where all_dogs.Breed LIKE concat("%", breed_name, "%");
+end //
+# call search_dog_breed("Pitbull");
+#----------------------------------------------------------------------------- 13
