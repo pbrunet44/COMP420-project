@@ -568,7 +568,7 @@ end //
 # call dog_popularity_by_shelter(13);
 #----------------------------------------------------------------------------- 10
 drop procedure if exists adopter_activity;
-delimeter //
+delimiter //
 create procedure adopter_activity(in adopte_id int(11))
 begin
 select
@@ -586,11 +586,11 @@ end //
 # call adopter_activity(7009);
 #----------------------------------------------------------------------------- 11
 drop procedure if exists search_employee_roles;
-delimeter //
+delimiter //
 create procedure search_employee_roles(in role_name VARCHAR(30))
 begin
 select
-concat(employee.em_fname, "  ", employee.em_lname) as "Name",
+concat(employees.em_fname, "  ", employees.em_lname) as "Name",
 shelter.sh_name as "Shelter",
 shelter.sh_phone as "Shelter Contact",
 employees.em_start as "Start Date",
