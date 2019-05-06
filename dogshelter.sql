@@ -574,8 +574,8 @@ begin
 select
 concat(adopter.adopte_fname, " ", adopter.adopte_lname) as "Adopter",
 count(visit.adopte_id) as "Shelter Visits",
-count(adoption_cert.adopte_id) as "Dogs adopted",
-count(pet_list.fav_id) as "Dogs favorited"
+count(adoption_cert.adopte_id) as "Dogs Adopted",
+count(pet_list.fav_id) as "Dogs Favorited"
 from adopter
 join visit on visit.adopte_id = adopter.adopte_id
 join adoption_cert on adoption_cert.adopte_id = adopter.adopte_id
