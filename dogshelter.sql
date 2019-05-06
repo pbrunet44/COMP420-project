@@ -573,14 +573,12 @@ create procedure adopter_activity(in adopte_id int(11))
 begin
 select
 concat(adopter.adopte_fname, " ", adopter.adopte_lname) as "Adopter",
-count(visit.adopte_id) as "Shelter Visits",
-count(adoption_cert.adopte_id) as "Dogs Adopted",
-count(pet_list.fav_id) as "Dogs Favorited"
+(select count(*) from visit where visit.adopte_id = adopte_id) as "Shelter Visits",
+(select count(*) from adoption_cert where adoption_cert.adopte_id = adopte_id) as "Dogs Adopted",
+(select count(*) from pet_list 
+join favorites_list on pet_list.fav_id = favorites_list.fav_id
+where favorites_list.adopte_id = adopte_id) as "Dogs Favorited"
 from adopter
-join visit on visit.adopte_id = adopter.adopte_id
-join adoption_cert on adoption_cert.adopte_id = adopter.adopte_id
-join favorites_list on favorites_list.adopte_id = adopter.adopte_id
-join pet_list on pet_list.fav_id = favorites_list.fav_id
 where adopter.adopte_id = adopte_id;
 end //
 # call adopter_activity(7009);
