@@ -588,15 +588,8 @@ delimiter //
 create procedure search_employee_roles(in role_name VARCHAR(30))
 begin
 select
-concat(employees.em_fname, "  ", employees.em_lname) as "Name",
-shelter.sh_name as "Shelter",
-shelter.sh_phone as "Shelter Contact",
-employees.em_start as "Start Date",
-employees.em_end as "End Date"
-from shelter
-join employees on employees.sh_id = shelter.sh_id
-join job_title on employees.job_id = job_title.job_id
-where  strcmp(job_title.title, role_name) = 0;
+* from all_employees
+where strcmp(all_employees.Role, role_name) = 0;
 end//
 # call search_employee_roles("Veterinarian");
 #----------------------------------------------------------------------------- 12
